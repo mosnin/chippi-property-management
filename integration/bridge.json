@@ -1,0 +1,25 @@
+{
+  "operations": [
+    "leases",
+    "leaseHistory",
+    "rentLedger",
+    "maintenanceCases",
+    "leaseCases"
+  ],
+  "imports": "import { maintenancePage } from \"./maintenance\"\nimport { leaseCasePage } from \"./lease_cases\"\nimport { rentalContextPage, rentalHistoryPage, rentLedgerPage } from \"./rentals\"\n",
+  "catalog": " : operation === \"leaseCases\" ? {\n                    operation,\n                    recordId: \"Optional complete renewal or move-out case reference\",\n                    workspaceId: \"Authorized shared record workspace when paging\",\n                    pagination: \"{cursor:null or previous continuationCursor,numItems:1\u201320}; continue until isDone\",\n                    description: \"Read original agreement/occupancy, proposed renewal or selected condition evidence, planned dates, accountable member, current packet and administrative human review. Proposed terms are not executed renewal. Condition differences do not prove liability. No legal deadline/notice, deduction, refund, payment, eligibility or contractual commitment is authorized. Missing/stale evidence needs an owned next action; a reviewed packet is not verified business completion.\",\n                  } : operation === \"maintenanceCases\" ? {\n                    operation,\n                    recordId: \"Optional complete work-order reference\",\n                    workspaceId: \"Authorized shared record workspace when paging\",\n                    pagination: \"{cursor:null or previous continuationCursor,numItems:1\u201320}; continue until isDone\",\n                    description: \"Read entered maintenance reports, accountable member, plan/holds, current document evidence and human review records. Physical work, vendor dispatch/acceptance and emergency notifications remain unverified; a reported outcome is not verified business completion.\",\n                  } : operation === \"leases\" || operation === \"leaseHistory\" || operation === \"rentLedger\" ? {\n                    operation,\n                    recordId: operation !== \"leases\" ? \"Required complete lease reference\" : \"Optional complete lease reference\",\n                    workspaceId: \"Authorized organization-owned workspace for a listing page\",\n                    pagination: \"{cursor:null or previous continuationCursor,numItems:1\u201320}; continue until isDone\",\n                    description: \"Read recorded proposals, human-recorded execution, source freshness and separate occupancy. History preserves original entered versions. rentLedger reads immutable attested entries and their mathematical net, never a complete balance. No rent balance, legal validity, notice, collection or eligibility authority. Report conflicting/unknown evidence.\",\n                  }",
+  "handlers": "    if (operation === \"leaseCases\") {\n      if (input.search !== undefined) throw new Error(\"Case search is not available; read scoped pages\")\n      return leaseCasePage(ctx, await spacesFor(ctx, scope), input)\n    }\n    if (operation === \"maintenanceCases\") {\n      if (input.search !== undefined) throw new Error(\"Maintenance search is not available; read scoped pages\")\n      return maintenancePage(ctx, await spacesFor(ctx, scope), input)\n    }\n    if (operation === \"leases\" || operation === \"leaseHistory\" || operation === \"rentLedger\") {\n      if (input.search !== undefined) throw new Error(\"Lease search is not available; read scoped pages\")\n      const allowed = await spacesFor(ctx, scope)\n      return operation === \"leases\" ? rentalContextPage(ctx, allowed, input) : operation === \"leaseHistory\" ? rentalHistoryPage(ctx, allowed, input) : rentLedgerPage(ctx, allowed, input)\n    }\n",
+  "scopedTables": [
+    "rentalUnits",
+    "leases",
+    "leaseVersions",
+    "leaseExecutionEvidence",
+    "occupancies",
+    "leaseCases",
+    "leaseCasePackets",
+    "leaseCaseReviews",
+    "maintenanceCases",
+    "maintenanceEvidence",
+    "maintenanceReviews"
+  ]
+}

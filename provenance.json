@@ -1,0 +1,36 @@
+{
+  "sourceRepository": "https://github.com/mosnin/chippiv2",
+  "sourceCommit": "8db38e36b0cc26dc4218ee4fea755417236887cc",
+  "sourceState": "Local uncommitted application additions; sourceCommit is baseline, not a claim these files exist in that commit.",
+  "capturedAt": "2026-10-03T20:22:13.244106+00:00",
+  "originalFiles": {
+    "apps/web/convex/rental_model.ts": "dde3ff679337fc69d44eeac7fe862c8210615270cc36cf608f1ea2ba718b853c",
+    "apps/web/convex/rentals.ts": "93f1f7982fe1ede2bc02eac5053993440f868db464a68366d89965ea365fe053",
+    "apps/web/convex/maintenance.ts": "3f5c3f2adb4a02599b6762b1349f013c8cc8a0c0302ebbc0e1719ffa1f1f2551",
+    "apps/web/convex/lease_cases.ts": "3150c76f57aa374145ea98bedc7e03540c5ea11ab127ed1f5e6a55a4df480f51",
+    "apps/web/tests/rentals.test.ts": "522cc00b3af440b2d647352f6bab9ec7a9c56b93791c2136adf74e31c35f912d",
+    "apps/web/tests/maintenance.test.ts": "612b855127f8b747ef4ccb1aec44e40139ce500518f3c3f6fcace25abf6c9d3b",
+    "apps/web/tests/lease-cases.test.ts": "6e1d9dab549bf05216f74ccc2f56c958927c37d607ec5e6586c0027f55b9b0cc"
+  },
+  "adaptation": "Finance removes its property-management imports in favor of a behavior-preserving record_support module. Additive schema/bridge fragments preserve original validation and scope; all host integration happens only in a local scratch fixture. Journal table names retained for compatibility.",
+  "exportedHashes": {
+    ".gitignore": "654b9e2348aa4b906999057bf9adbb4b5441516b158aa0dbd39082c61a9810e7",
+    "README.md": "63ed59882bccfe93395fdc9abf47060b8282fc7244392e7948e7887dc81b2586",
+    "convex/lease_cases.ts": "3150c76f57aa374145ea98bedc7e03540c5ea11ab127ed1f5e6a55a4df480f51",
+    "convex/maintenance.ts": "3f5c3f2adb4a02599b6762b1349f013c8cc8a0c0302ebbc0e1719ffa1f1f2551",
+    "convex/rental_model.ts": "dde3ff679337fc69d44eeac7fe862c8210615270cc36cf608f1ea2ba718b853c",
+    "convex/rentals.ts": "93f1f7982fe1ede2bc02eac5053993440f868db464a68366d89965ea365fe053",
+    "docs/maintenance-record-foundation.md": "8dc3100566710412ce53cd3c94d669fc7a56d04f8354dd12611a858efa8efa68",
+    "docs/renewal-moveout-case-foundation.md": "3026de87010da84dd740bb08eab30d7d05653584f7ef924359229eb85b4498a4",
+    "docs/rent-ledger-foundation.md": "edad862c49e31356a5868c7c7175efb350037c2bfdaae9ea35c62412185582d7",
+    "docs/rental-record-foundation.md": "b62c9919e8fa14702e68f4d020a01ed30a9e04b094b718bddb2c91e15ad809fc",
+    "docs/verification.md": "13922c5557b47a2a15c20bf56ec762322696c094cb5952d9bc77e72c686a4243",
+    "integration/bridge.json": "2994055b96c4b0118b4dcfa355925b10d6cb432d438c7bcabb11ad6dc1ba8bc3",
+    "integration/schema-tables.ts": "ec2816f389b529c58608771705e3a38f29293a12fd6eebd620970c9853a1ec51",
+    "package.json": "6bbd1e3eec91876c21a57027c49b43b2a2ab858a01dcc7338ccb4736b4453b3b",
+    "scripts/test-in-core.mjs": "141612e67770f8b4467fd656960c50a74e387ebeab0e47f536e2ed4196ba094f",
+    "tests/lease-cases.test.ts": "6e1d9dab549bf05216f74ccc2f56c958927c37d607ec5e6586c0027f55b9b0cc",
+    "tests/maintenance.test.ts": "612b855127f8b747ef4ccb1aec44e40139ce500518f3c3f6fcace25abf6c9d3b",
+    "tests/rentals.test.ts": "522cc00b3af440b2d647352f6bab9ec7a9c56b93791c2136adf74e31c35f912d"
+  }
+}
